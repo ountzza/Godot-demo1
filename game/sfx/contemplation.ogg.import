@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/contemplation.ogg-918ab6fc520208bc1a479ee3285ef821.oggstr"
+
+[deps]
+
+source_file="res://game/sfx/contemplation.ogg"
+dest_files=[ "res://.import/contemplation.ogg-918ab6fc520208bc1a479ee3285ef821.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

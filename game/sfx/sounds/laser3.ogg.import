@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/laser3.ogg-e8df744ffa0e673739ff5bb15aa05368.oggstr"
+
+[deps]
+
+source_file="res://game/sfx/sounds/laser3.ogg"
+dest_files=[ "res://.import/laser3.ogg-e8df744ffa0e673739ff5bb15aa05368.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

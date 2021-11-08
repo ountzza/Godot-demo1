@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ROOM1_look_wall_item_2_de.ogg-d917b17de0c3600df8f85d3e2134b28c.oggstr"
+
+[deps]
+
+source_file="res://game/speech/room01/ROOM1_look_wall_item_2_de.ogg"
+dest_files=[ "res://.import/ROOM1_look_wall_item_2_de.ogg-d917b17de0c3600df8f85d3e2134b28c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

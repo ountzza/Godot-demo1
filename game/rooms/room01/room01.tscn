@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://game/rooms/room01/walkable_area.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/rooms/room01/background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/fonts/caslonantique.tres" type="DynamicFont" id=3]
+[ext_resource path="res://game/characters/mark/mark.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_item.gd" type="Script" id=5]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=6]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_location.gd" type="Script" id=7]
+[ext_resource path="res://game/rooms/room01/r_door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/rooms/room01/item.tscn" type="PackedScene" id=9]
+
+[node name="room1" type="Node2D"]
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+global_id = "room1"
+esc_script = "res://game/rooms/room01/esc/room01.esc"
+player_scene = ExtResource( 4 )
+camera_limits = [ Rect2( 0, 0, 1285, 550 ) ]
+editor_debug_mode = 1
+
+[node name="background" parent="." instance=ExtResource( 2 )]
+
+[node name="advice" type="Label" parent="background"]
+anchor_right = 0.023274
+anchor_bottom = 0.018018
+margin_left = 90.2752
+margin_top = 120.824
+margin_right = 270.275
+margin_bottom = 155.824
+custom_fonts/font = ExtResource( 3 )
+text = "Move : left click
+Fast move : double left click"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="room_label" type="Label" parent="background"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 3 )
+text = "ROOM 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="walkable_area" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3.5636, 0 )
+
+[node name="Hotspots" type="Node" parent="."]
+
+[node name="r_door" parent="Hotspots" instance=ExtResource( 8 )]
+position = Vector2( 1225.9, 217.966 )
+
+[node name="ESCLocation" type="Position2D" parent="Hotspots/r_door"]
+position = Vector2( 1.35498, 136.453 )
+script = ExtResource( 7 )
+
+[node name="item" parent="Hotspots" instance=ExtResource( 9 )]
+position = Vector2( 480.542, 146.832 )
+global_id = "r1_wall_item1"
+esc_script = "res://game/rooms/room01/esc/wall_item.esc"
+
+[node name="Label" type="Label" parent="Hotspots/item"]
+margin_left = -105.12
+margin_top = 121.762
+margin_right = 122.88
+margin_bottom = 142.762
+custom_fonts/font = ExtResource( 3 )
+text = "Character talks with text above"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="item2" parent="Hotspots" instance=ExtResource( 9 )]
+position = Vector2( 839.614, 147.455 )
+global_id = "r1_wall_item2"
+esc_script = "res://game/rooms/room01/esc/wall_item_popupdialog.esc"
+
+[node name="Label" type="Label" parent="Hotspots/item2"]
+margin_left = -105.12
+margin_top = 121.762
+margin_right = 122.88
+margin_bottom = 142.762
+custom_fonts/font = ExtResource( 3 )
+text = "Character talks with popup"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="trigger_talk" type="Area2D" parent="Hotspots"]
+pause_mode = 1
+script = ExtResource( 5 )
+global_id = "trigger_talk"
+esc_script = "res://game/rooms/room01/esc/trigger.esc"
+is_trigger = true
+player_orients_on_arrival = false
+dialog_color = Color( 1, 1, 1, 1 )
+animations = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hotspots/trigger_talk"]
+polygon = PoolVector2Array( 1020.6, 348.369, 1155.87, 515.233, 1249.67, 445.131, 1114.4, 347.382 )
+
+[node name="player_start" type="Position2D" parent="."]
+position = Vector2( 172.471, 434.487 )
+script = ExtResource( 7 )
+global_id = "r1_start"
+is_start_location = true
+
+[node name="orients_down_on_arrival" type="Position2D" parent="."]
+position = Vector2( 400.129, 432.969 )
+script = ExtResource( 7 )
+global_id = "r1_destination_point"
+interaction_direction = 4
+
+[node name="set_angle_by_esc" type="Position2D" parent="."]
+position = Vector2( 934.11, 502.959 )
+script = ExtResource( 7 )
+global_id = "r1_destination_point2"
+player_orients_on_arrival = false
+
+[node name="turn_to_r_door_by_esc" type="Position2D" parent="."]
+position = Vector2( 660.468, 381.489 )
+script = ExtResource( 7 )
+global_id = "r1_destination_point3"
+player_orients_on_arrival = false
+
+[editable path="Hotspots/item"]
